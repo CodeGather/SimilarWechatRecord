@@ -1,0 +1,8 @@
+com.apicloud.pkg.sdk
+drawable mo_cus_refresh_default
+drawable uz_icon
+id btn
+id text
+layout mo_demo_main_activity
+string app_name
+style AppTheme

@@ -1,0 +1,7 @@
+int drawable mo_cus_refresh_default 0x7f010000
+int drawable uz_icon 0x7f010001
+int id btn 0x7f020000
+int id text 0x7f020001
+int layout mo_demo_main_activity 0x7f030000
+int string app_name 0x7f040000
+int style AppTheme 0x7f050000

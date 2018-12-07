@@ -1,0 +1,44 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\Android\\apicloud\\androidstudio\\APICloudModuleSDK\\moduleDemo\\build\\intermediates\\res\\merged\\release\\values\\values.xml",
+            "map": [
+                {
+                    "source": "D:\\Android\\apicloud\\androidstudio\\APICloudModuleSDK\\moduleDemo\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "-1",
+                        "startColumns": "-1",
+                        "startOffsets": "-1"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "47",
+                        "endOffsets": "98"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "D:\\Android\\apicloud\\androidstudio\\APICloudModuleSDK\\moduleDemo\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "D:\\Android\\apicloud\\androidstudio\\APICloudModuleSDK\\moduleDemo\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "-1",
+                        "startColumns": "-1",
+                        "startOffsets": "-1"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "47",
+                        "endOffsets": "98"
+                    }
+                }
+            ]
+        }
+    ]
+}

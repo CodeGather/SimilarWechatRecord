@@ -1,0 +1,2 @@
+com.apicloud.moduleScrollPicture
+string app_name

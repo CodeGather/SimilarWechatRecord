@@ -1,0 +1,4 @@
+#Thu Nov 29 17:02:31 CST 2018
+base.0=D\:\\Android\\apicloud\\androidstudio\\APICloudModuleSDK\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\out
+path.0=classes.dex
+renamed.0=classes.dex
