@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SimilarWechatRecord/SimilarWechatRecord.iml" filepath="$PROJECT_DIR$/SimilarWechatRecord/SimilarWechatRecord.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WeiXinRecord.iml" filepath="$PROJECT_DIR$/WeiXinRecord.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+    </modules>
+  </component>
+</project>
