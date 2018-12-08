@@ -58,19 +58,19 @@
             android:id="@+id/iv_back"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="50dp"
             android:src="@mipmap/video_delete"/>
         <ImageView
             android:id="@+id/iv_finish"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginRight="50dp"
             android:layout_alignParentRight="true"
             android:src="@mipmap/video_finish"/>
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/rl_bottom1"
+        android:id="@+id/rl_back_bottom"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_alignParentBottom="true"
@@ -83,7 +83,7 @@
             android:layout_height="50dp"
             android:padding="10dp"
             android:rotation="-90"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="50dp"
             android:background="@drawable/rotia"
             android:src="@mipmap/back2"/>
     </RelativeLayout>
@@ -101,7 +101,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:padding="15dp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="50dp"
             android:background="@drawable/rotia"
             android:src="@mipmap/video_close"/>
         <ImageView
@@ -109,7 +109,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:padding="15dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginRight="50dp"
             android:layout_alignParentRight="true"
             android:background="@drawable/rotia"
             android:src="@mipmap/video_next"/>

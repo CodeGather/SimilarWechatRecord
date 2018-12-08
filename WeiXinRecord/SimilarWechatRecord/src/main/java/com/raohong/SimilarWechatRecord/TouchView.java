@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by zhaoshuang on 16/6/17.
+ * Created by raohong on 16/6/17.
  * 手势控制旋转放大缩小View
  */
 public class TouchView extends View {

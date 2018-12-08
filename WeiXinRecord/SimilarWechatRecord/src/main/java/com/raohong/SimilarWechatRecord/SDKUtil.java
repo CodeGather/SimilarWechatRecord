@@ -7,7 +7,7 @@ import com.yixia.camera.VCamera;
 import java.io.File;
 
 /**
- * Created by zhaoshuang on 17/2/8.
+ * Created by raohong on 17/2/8.
  */
 
 public class SDKUtil {

@@ -11,7 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 /**
- * Created by zhaoshuang on 17/2/23.
+ * Created by raohong on 17/2/23.
  */
 
 public abstract class BaseActivity extends Activity {

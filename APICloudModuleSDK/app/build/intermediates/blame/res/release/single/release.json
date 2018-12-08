@@ -1,14 +1,14 @@
 [
     {
-        "merged": "D:\\Android\\apicloud\\androidstudio\\APICloudModuleSDK\\app\\build\\intermediates\\res\\merged\\release\\layout_mo_demo_main_activity.xml.flat",
-        "source": "D:\\Android\\apicloud\\androidstudio\\APICloudModuleSDK\\moduleDemo\\build\\intermediates\\packaged_res\\release\\layout\\mo_demo_main_activity.xml"
+        "merged": "E:\\work\\sean\\SimilarWechatRecord\\APICloudModuleSDK\\app\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_uz_icon.png.flat",
+        "source": "E:\\work\\sean\\SimilarWechatRecord\\APICloudModuleSDK\\app\\src\\main\\res\\drawable-xxhdpi\\uz_icon.png"
     },
     {
-        "merged": "D:\\Android\\apicloud\\androidstudio\\APICloudModuleSDK\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_mo_cus_refresh_default.png.flat",
-        "source": "D:\\Android\\apicloud\\androidstudio\\APICloudModuleSDK\\moduleRefresh\\build\\intermediates\\packaged_res\\release\\drawable-hdpi-v4\\mo_cus_refresh_default.png"
+        "merged": "E:\\work\\sean\\SimilarWechatRecord\\APICloudModuleSDK\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_mo_cus_refresh_default.png.flat",
+        "source": "E:\\work\\sean\\SimilarWechatRecord\\APICloudModuleSDK\\moduleRefresh\\build\\intermediates\\packaged_res\\release\\drawable-hdpi-v4\\mo_cus_refresh_default.png"
     },
     {
-        "merged": "D:\\Android\\apicloud\\androidstudio\\APICloudModuleSDK\\app\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_uz_icon.png.flat",
-        "source": "D:\\Android\\apicloud\\androidstudio\\APICloudModuleSDK\\app\\src\\main\\res\\drawable-xxhdpi\\uz_icon.png"
+        "merged": "E:\\work\\sean\\SimilarWechatRecord\\APICloudModuleSDK\\app\\build\\intermediates\\res\\merged\\release\\layout_mo_demo_main_activity.xml.flat",
+        "source": "E:\\work\\sean\\SimilarWechatRecord\\APICloudModuleSDK\\moduleDemo\\build\\intermediates\\packaged_res\\release\\layout\\mo_demo_main_activity.xml"
     }
 ]

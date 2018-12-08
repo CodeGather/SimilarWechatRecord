@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Android\\apicloud\\androidstudio\\APICloudModuleSDK\\moduleAppdelegate\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values\\values.xml",
+            "outputFile": "E:\\work\\sean\\SimilarWechatRecord\\APICloudModuleSDK\\moduleAppdelegate\\build\\intermediates\\res\\merged\\release\\values\\values.xml",
             "map": [
                 {
-                    "source": "D:\\Android\\apicloud\\androidstudio\\APICloudModuleSDK\\moduleAppdelegate\\src\\main\\res\\values\\strings.xml",
+                    "source": "E:\\work\\sean\\SimilarWechatRecord\\APICloudModuleSDK\\moduleAppdelegate\\src\\main\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "1",
                         "startColumns": "4",
@@ -23,10 +23,10 @@
             ]
         },
         {
-            "outputFile": "D:\\Android\\apicloud\\androidstudio\\APICloudModuleSDK\\moduleAppdelegate\\build\\intermediates\\res\\merged\\release\\values\\values.xml",
+            "outputFile": "E:\\work\\sean\\SimilarWechatRecord\\APICloudModuleSDK\\moduleAppdelegate\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "D:\\Android\\apicloud\\androidstudio\\APICloudModuleSDK\\moduleAppdelegate\\src\\main\\res\\values\\strings.xml",
+                    "source": "E:\\work\\sean\\SimilarWechatRecord\\APICloudModuleSDK\\moduleAppdelegate\\src\\main\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "1",
                         "startColumns": "4",

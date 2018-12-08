@@ -10,6 +10,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
+import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -36,10 +37,10 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Locale;
+import java.util.HashMap;
 
 /**
- * Created by zhaoshuang on 17/2/21.
+ * Created by raohong on 17/2/21.
  * 视频编辑界面
  */
 
@@ -131,19 +132,6 @@ public class EditVideoActivity extends BaseActivity {
                     layoutParams1.height = layoutParams.height;
                     rl_tuya.setLayoutParams(layoutParams1);
                 }
-            }
-        });
-
-        //当进行涂鸦操作时, 隐藏标题栏和底部工具栏
-        tv_video.setOnTouchListener(new TuyaView.OnTouchListener() {
-            @Override
-            public void onDown() {
-                changeMode(false);
-            }
-
-            @Override
-            public void onUp() {
-                changeMode(true);
             }
         });
     }
@@ -456,6 +444,7 @@ public class EditVideoActivity extends BaseActivity {
 
         String mergeVideo = SDKUtil.VIDEO_PATH + "/mergeVideo.mp4";
 
+
         //ffmpeg -i videoPath -i imagePath -filter_complex overlay=0:0 -vcodec libx264 -profile:v baseline -preset ultrafast -b:v 3000k -g 30 -f mp4 outPath
         StringBuilder sb = new StringBuilder();
         sb.append("ffmpeg");
@@ -477,33 +466,38 @@ public class EditVideoActivity extends BaseActivity {
         }
     }
 
+
     /**
-     * 调整视频播放速度
+     * 获取本地或者url视频的第一帧
+     * @param fileData
+     * @return
      */
-    private String adjustVideoSpeed(String path, float speed) {
-
-        String outPut = SDKUtil.VIDEO_PATH + "/speedVideo.mp4";
-
-        //./ffmpeg -i 2x.mp4 -filter_complex "[0:v]setpts=0.5*PTS[v];[0:a]atempo=2.0[a]" -map "[v]" -map "[a]" output3.mp4
-        String filter = String.format(Locale.getDefault(), "[0:v]setpts=%f*PTS[v];[0:a]atempo=%f[a]", 1 / speed, speed);
-        StringBuilder sb = new StringBuilder("ffmpeg");
-        sb.append(" -i");
-        sb.append(" " + path);
-        sb.append(" -filter_complex");
-        sb.append(" " + filter);
-        sb.append(" -map");
-        sb.append(" [v]");
-        sb.append(" -map");
-        sb.append(" [a]");
-        sb.append(" -y");
-        sb.append(" " + outPut);
-
-        int i = UtilityAdapter.FFmpegRun("", sb.toString());
-        if (i == 0) {
-            return outPut;
-        } else {
-            return "";
+    public static Bitmap getVideoThumbnail(String fileData) {
+        Bitmap bitmap = null;
+        /*
+         * MediaMetadataRetriever 是android中定义好的一个类，提供了统一的接口，
+         * 用于从输入的媒体文件中取得帧和元数据
+         */
+        MediaMetadataRetriever retriever = new MediaMetadataRetriever();
+        try {
+            if( fileData.contains("http://") || fileData.contains("https://") ) {
+                System.out.println("包含该字符串");
+                //根据文件路径获取缩略图
+                retriever.setDataSource(fileData, new HashMap());
+            } else {
+                //根据文件路径获取缩略图
+                retriever.setDataSource(fileData);
+            }
+            //获得第一帧图片
+            bitmap = retriever.getFrameAtTime();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } finally {
+            retriever.release();
         }
+
+        System.out.println("保存成功");
+        return bitmap;
     }
 
     @Override
@@ -548,7 +542,6 @@ public class EditVideoActivity extends BaseActivity {
 
     private boolean isPen;
     private boolean isImage;
-    private boolean isSpeed;
 
     @SuppressLint("StaticFieldLeak")
     private void finishVideo() {
@@ -565,7 +558,7 @@ public class EditVideoActivity extends BaseActivity {
             isImage = true;
         }
 
-        if(!isPen && !isImage && !isSpeed){
+        if(!isPen && !isImage){
             Intent intent = new Intent();
             intent.putExtra("videoPath", path);
             setResult(RESULT_OK, intent);
@@ -574,6 +567,7 @@ public class EditVideoActivity extends BaseActivity {
         }
 
         new AsyncTask<Void, Void, String>() {
+
             @Override
             protected void onPreExecute() {
                 showProgressDialog();
@@ -582,9 +576,6 @@ public class EditVideoActivity extends BaseActivity {
             @Override
             protected String doInBackground(Void... params) {
                 String videoPath = mergeImage(path);
-                if (videoSpeed != 1) {
-                    videoPath = adjustVideoSpeed(videoPath, videoSpeed);
-                }
                 return videoPath;
             }
 
@@ -595,6 +586,27 @@ public class EditVideoActivity extends BaseActivity {
                     Intent intent = new Intent();
                     intent.putExtra("videoPath", result);
                     setResult(RESULT_OK, intent);
+
+
+                    String mergeVideo = SDKUtil.VIDEO_PATH + "/mergeVideo.mp4";
+
+                    String imagePaths = SDKUtil.VIDEO_PATH + "/ThumIMG.png";
+
+                    Bitmap bitmaps = getVideoThumbnail(mergeVideo);
+
+                    System.out.println("已保存视频"+mergeVideo);
+
+                    File files = new File(imagePaths);//将要保存图片的路径
+                    try {
+                        BufferedOutputStream boss = new BufferedOutputStream(new FileOutputStream(files));
+                        bitmaps.compress(Bitmap.CompressFormat.PNG, 100, boss);
+                        boss.flush();
+                        boss.close();
+                        System.out.println("已保存缩略图"+imagePaths);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
                     finish();
                 } else {
                     Toast.makeText(getApplicationContext(), "视频编辑失败", Toast.LENGTH_SHORT).show();

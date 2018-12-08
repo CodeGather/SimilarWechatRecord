@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by zhaoshuang on 17/2/16.
+ * Created by raohong on 17/2/16.
  * 触摸对焦SurfaceView
  */
 

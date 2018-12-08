@@ -18,7 +18,7 @@ import java.io.File;
 import java.util.Locale;
 
 /**
- * Created by zhaoshuang on 17/3/21.
+ * Created by raohong on 17/3/21.
  */
 
 public class CutSizeActivity extends BaseActivity implements View.OnClickListener{

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by zhaoshuang on 16/12/14.
+ * Created by raohong on 16/12/14.
  * 手绘涂鸦界面
  */
 

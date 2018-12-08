@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by zhaoshuang on 17/2/8.
+ * Created by raohong on 17/2/8.
  */
 
 public class RecordedButton extends View {
@@ -158,13 +158,13 @@ public class RecordedButton extends View {
                     }
                 }
 
-                float slideX = moveX - downX;
-                float slideY = moveY - downY;
-                //跟随手指移动
-                setX(getX() + slideX);
-                setY(getY() + slideY);
-                downX = moveX;
-                downY = moveY;
+//                float slideX = moveX - downX;
+//                float slideY = moveY - downY;
+//                //跟随手指移动
+//                setX(getX() + slideX);
+//                setY(getY() + slideY);
+//                downX = moveX;
+//                downY = moveY;
                 break;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:

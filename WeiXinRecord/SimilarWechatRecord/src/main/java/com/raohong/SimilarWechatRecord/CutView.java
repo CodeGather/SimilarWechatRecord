@@ -9,7 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 /**
- * Created by zhaoshuang on 17/3/20.
+ * Created by raohong on 17/3/20.
  * 裁剪视频的View
  */
 

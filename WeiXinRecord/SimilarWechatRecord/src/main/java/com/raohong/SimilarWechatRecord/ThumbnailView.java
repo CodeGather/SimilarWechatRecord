@@ -14,7 +14,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 /**
- * Created by zhaoshuang on 17/8/22.
+ * Created by raohong on 17/8/22.
  */
 
 public class ThumbnailView extends View {

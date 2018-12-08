@@ -34,14 +34,14 @@ repositories{
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:support-v4:24.0.0'
-    compile 'com.android.support:multidex:1.0.1'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:support-v4:24.0.0'
+    implementation 'com.android.support:multidex:1.0.1'
     //5个模块
-    compile project(':moduleDemo')
-    compile project(':moduleScrollPicture')
-    compile project(':moduleSyncInterface')
-    compile project(':moduleRefresh')
-    compile project(':moduleAppdelegate')
-    compile project(':recordVideo')
+    implementation project(':moduleDemo')
+    implementation project(':moduleScrollPicture')
+    implementation project(':moduleSyncInterface')
+    implementation project(':moduleRefresh')
+    implementation project(':moduleAppdelegate')
+    implementation project(':recordVideo')
 }

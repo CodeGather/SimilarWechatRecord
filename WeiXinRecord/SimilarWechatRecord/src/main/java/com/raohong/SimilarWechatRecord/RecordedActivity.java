@@ -100,7 +100,7 @@ public class RecordedActivity extends BaseActivity {
         iv_back = (ImageView) findViewById(R.id.iv_back);
         tv_hint = (TextView) findViewById(R.id.tv_hint);
         rl_bottom = (RelativeLayout) findViewById(R.id.rl_bottom);
-        rl_bottom1 = (RelativeLayout) findViewById(R.id.rl_bottom1);
+        rl_bottom1 = (RelativeLayout) findViewById(R.id.rl_back_bottom);
         rl_bottom2 = (RelativeLayout) findViewById(R.id.rl_bottom2);
         iv_next = (ImageView) findViewById(R.id.iv_next);
         iv_close = (ImageView) findViewById(R.id.iv_close);
@@ -119,9 +119,7 @@ public class RecordedActivity extends BaseActivity {
     }
 
     private void initData() {
-
         sv_ffmpeg.setTouchFocus(mMediaRecorder);
-
         rb_start.setMax(maxDuration);
 
         rb_start.setOnGestureListener(new RecordedButton.OnGestureListener() {
@@ -133,12 +131,15 @@ public class RecordedActivity extends BaseActivity {
                 rb_start.setSplit();
                 myHandler.sendEmptyMessageDelayed(HANDLER_RECORD, 50);
                 cameraTypeList.add(mMediaRecorder.getCameraType());
-
+                /* 返回按钮状态 */
+                rl_bottom1.setVisibility(View.GONE);
                 isVideoData = true;
             }
             @Override
             public void onClick() {
                 if(!isVideoData) {
+                    /* 返回按钮状态 */
+                    rl_bottom1.setVisibility(View.GONE);
                     //点击拍照
                     dialogTextView = showProgressDialog();
                     dialogTextView.setText("正在抓取屏幕, 请保持静止");
@@ -179,6 +180,8 @@ public class RecordedActivity extends BaseActivity {
                         changeButton(true);
                     }else{
                         isVideoData = false;
+                        /* 返回按钮状态 */
+                        rl_bottom1.setVisibility(View.VISIBLE);
                         changeButton(false);
                     }
                 } else if (mMediaObject.getMediaParts().size() > 0) {
@@ -244,6 +247,7 @@ public class RecordedActivity extends BaseActivity {
         if(flag){
             tv_hint.setVisibility(View.VISIBLE);
             rl_bottom.setVisibility(View.VISIBLE);
+            rl_bottom1.setVisibility(View.GONE);
         }else{
             tv_hint.setVisibility(View.GONE);
             rl_bottom.setVisibility(View.GONE);
@@ -262,9 +266,10 @@ public class RecordedActivity extends BaseActivity {
 
         rl_top.setVisibility(View.VISIBLE);
         rb_start.setVisibility(View.VISIBLE);
-        rl_bottom1.setVisibility(View.VISIBLE);
         rl_bottom2.setVisibility(View.GONE);
         changeButton(false);
+        /* 在此定义按钮的初始状态，否则返回时状态报错 */
+        rl_bottom1.setVisibility(View.VISIBLE);
         tv_hint.setVisibility(View.VISIBLE);
 
         LinkedList<MediaObject.MediaPart> list = new LinkedList<>();
@@ -294,47 +299,47 @@ public class RecordedActivity extends BaseActivity {
         public void handleMessage(Message msg) {
             switch (msg.what){
                 case HANDLER_RECORD: {
-                        //拍摄视频的handler
-                        if (!isRecordedOver) {
-                            if (rl_bottom.getVisibility() == View.VISIBLE) {
-                                changeButton(false);
-                            }
-                            rb_start.setProgress(mMediaObject.getDuration());
-                            myHandler.sendEmptyMessageDelayed(HANDLER_RECORD, 30);
+                    //拍摄视频的handler
+                    if (!isRecordedOver) {
+                        if (rl_bottom.getVisibility() == View.VISIBLE) {
+                            changeButton(false);
                         }
+                        rb_start.setProgress(mMediaObject.getDuration());
+                        myHandler.sendEmptyMessageDelayed(HANDLER_RECORD, 30);
                     }
-                    break;
+                }
+                break;
                 case HANDLER_EDIT_VIDEO: {
-                        //合成视频的handler
-                        int progress = UtilityAdapter.FilterParserAction("", UtilityAdapter.PARSERACTION_PROGRESS);
-                        if (dialogTextView != null) dialogTextView.setText("视频编译中 " + progress + "%");
-                        if (progress == 100) {
-                            syntVideo();
-                        } else if (progress == -1) {
-                            closeProgressDialog();
-                            Toast.makeText(getApplicationContext(), "视频合成失败", Toast.LENGTH_SHORT).show();
-                        } else {
-                            sendEmptyMessageDelayed(HANDLER_EDIT_VIDEO, 20);
-                        }
+                    //合成视频的handler
+                    int progress = UtilityAdapter.FilterParserAction("", UtilityAdapter.PARSERACTION_PROGRESS);
+                    if (dialogTextView != null) dialogTextView.setText("视频编译中 " + progress + "%");
+                    if (progress == 100) {
+                        syntVideo();
+                    } else if (progress == -1) {
+                        closeProgressDialog();
+                        Toast.makeText(getApplicationContext(), "视频合成失败", Toast.LENGTH_SHORT).show();
+                    } else {
+                        sendEmptyMessageDelayed(HANDLER_EDIT_VIDEO, 20);
                     }
-                    break;
+                }
+                break;
                 case HANDLER_CAMERA_PHOTO: {
-                        //拍照
-                        if(mMediaRecorder.getRecordState()){
-                            mMediaRecorder.stopRecord();
-                        }
-                        int progress = UtilityAdapter.FilterParserAction("", UtilityAdapter.PARSERACTION_PROGRESS);
-                        if (progress == 100) {
-                            syntCamera();
-                        } else if (progress == -1) {
-                            closeProgressDialog();
-                            Toast.makeText(getApplicationContext(), "照片拍摄失败", Toast.LENGTH_SHORT).show();
-                        } else {
-                            dialogTextView.setText("照片编辑中");
-                            sendEmptyMessageDelayed(HANDLER_CAMERA_PHOTO, 10);
-                        }
+                    //拍照
+                    if(mMediaRecorder.getRecordState()){
+                        mMediaRecorder.stopRecord();
                     }
-                    break;
+                    int progress = UtilityAdapter.FilterParserAction("", UtilityAdapter.PARSERACTION_PROGRESS);
+                    if (progress == 100) {
+                        syntCamera();
+                    } else if (progress == -1) {
+                        closeProgressDialog();
+                        Toast.makeText(getApplicationContext(), "照片拍摄失败", Toast.LENGTH_SHORT).show();
+                    } else {
+                        dialogTextView.setText("照片编辑中");
+                        sendEmptyMessageDelayed(HANDLER_CAMERA_PHOTO, 10);
+                    }
+                }
+                break;
             }
         }
     };
@@ -382,7 +387,6 @@ public class RecordedActivity extends BaseActivity {
             protected void onPostExecute(String result) {
                 closeProgressDialog();
                 if(!TextUtils.isEmpty(result)){
-                    rl_bottom1.setVisibility(View.GONE);
                     rl_bottom2.setVisibility(View.VISIBLE);
                     vv_play.setVisibility(View.VISIBLE);
                     rl_top.setVisibility(View.GONE);
@@ -453,7 +457,6 @@ public class RecordedActivity extends BaseActivity {
                 closeProgressDialog();
                 if(result != null){
                     changeButton(false);
-                    rl_bottom1.setVisibility(View.GONE);
                     rl_bottom2.setVisibility(View.VISIBLE);
                     iv_photo.setVisibility(View.VISIBLE);
                     rl_top.setVisibility(View.GONE);

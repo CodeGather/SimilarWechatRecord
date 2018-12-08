@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import android.widget.HorizontalScrollView;
 
 /**
- * Created by zhaoshuang on 17/8/23.
+ * Created by raohong on 17/8/23.
  */
 
 public class MyHorizontalScrollView extends HorizontalScrollView {

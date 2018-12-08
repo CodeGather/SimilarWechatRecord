@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Android\\apicloud\\androidstudio\\APICloudModuleSDK\\moduleScrollPicture\\build\\intermediates\\res\\merged\\release\\values\\values.xml",
+            "outputFile": "E:\\work\\sean\\SimilarWechatRecord\\APICloudModuleSDK\\moduleScrollPicture\\build\\intermediates\\res\\merged\\release\\values\\values.xml",
             "map": [
                 {
-                    "source": "D:\\Android\\apicloud\\androidstudio\\APICloudModuleSDK\\moduleScrollPicture\\src\\main\\res\\values\\strings.xml",
+                    "source": "E:\\work\\sean\\SimilarWechatRecord\\APICloudModuleSDK\\moduleScrollPicture\\src\\main\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "1",
                         "startColumns": "4",
@@ -23,10 +23,10 @@
             ]
         },
         {
-            "outputFile": "D:\\Android\\apicloud\\androidstudio\\APICloudModuleSDK\\moduleScrollPicture\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values\\values.xml",
+            "outputFile": "E:\\work\\sean\\SimilarWechatRecord\\APICloudModuleSDK\\moduleScrollPicture\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "D:\\Android\\apicloud\\androidstudio\\APICloudModuleSDK\\moduleScrollPicture\\src\\main\\res\\values\\strings.xml",
+                    "source": "E:\\work\\sean\\SimilarWechatRecord\\APICloudModuleSDK\\moduleScrollPicture\\src\\main\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "1",
                         "startColumns": "4",
