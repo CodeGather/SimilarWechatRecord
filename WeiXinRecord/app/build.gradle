@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "com.raohong.weixinrecord"
+        applicationId "com.zhaoshuang.weixinrecordeddemo"
         minSdkVersion 17
         //如果设置targetSdkVersion版本为23或23以上时, System.loadLibrary("utility")初始化就会UnsatisfiedLinkError
         targetSdkVersion 17
