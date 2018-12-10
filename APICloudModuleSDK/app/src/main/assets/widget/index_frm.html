@@ -18,23 +18,22 @@
 	    
 		var uzmoduledemo = null;
 		var scrollPicture = null;
-		var recordVideos = null;
+		var recordVideo = null;
 		apiready = function(){
 	    	uzmoduledemo = api.require('moduleDemo');
 	    	scrollPicture = api.require('scrollPicture');
-	    	recordVideos = api.require('recordVideo');
+	    	recordVideo = api.require('similarWechatRecord');
 	    }
 	    
-		function showAlert(){
+		function StartRecordVideo(){
 			var param = {maxTime:15};
-	        uzmoduledemo.showAlert(param, function(ret, err){
+	        recordVideo.startRecordVideo(param, function(ret, err){
 	        	alert(JSON.stringify(ret));
 	        });
 		}
-
-		function showAlerts(){
+		function showAlert(){
 			var param = {maxTime:15};
-	        recordVideos.showAlertView(param, function(ret, err){
+	        uzmoduledemo.showAlert(param, function(ret, err){
 	        	alert(JSON.stringify(ret));
 	        });
 		}
@@ -167,8 +166,9 @@
         	<br>
 			<div class='itemtitle'>1、弹出对话框</div>
 				<div class="clickbtn" tapmode="active" onclick="showAlert()" >点击弹出</div>
-				<div class="clickbtn" tapmode="active" onclick="showAlerts()" >新建的测试点击弹出</div>
+				<div class="clickbtn" tapmode="active" onclick="showAlerts()" >测试点击弹出</div>
 			<div class='itemtitle'>2、启动Activity</div>
+				<div class="clickbtn" tapmode="active" onclick="StartRecordVideo()" >测试录制视频</div>
 				<div class="clickbtn" tapmode="active" onclick="startActivity()" >startActivity</div>
 				<div class="clickbtn" tapmode="active" onclick="startActivityForResult()" >startActivityForResult</div>
 				<div style="font-size:0.8em;">acticity返回值:</div>

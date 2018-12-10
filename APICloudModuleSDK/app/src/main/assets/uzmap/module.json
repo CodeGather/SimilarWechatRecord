@@ -21,8 +21,8 @@
 			"class":"com.apicloud.moduleRefresh.CusRefreshHeader"
 		},
 		{
-			"name":"recordVideo",
-			"class":"com.toolcool.recordVideo.APIModuleRecordVideo"
+			"name":"similarWechatRecord",
+			"class":"com.raohong.SimilarWechatRecord.StartRecordVideoActivity"
 		}
 	]
 }
