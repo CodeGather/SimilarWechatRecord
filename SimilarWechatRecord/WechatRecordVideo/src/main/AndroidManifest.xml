@@ -1,0 +1,24 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.raohong.WechatRecordVideo" >
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+
+        <activity android:name="com.raohong.WechatRecordVideo.RecordedActivity" />
+
+        <activity android:name="com.raohong.WechatRecordVideo.EditVideoActivity"
+            android:windowSoftInputMode="adjustResize|adjustPan" />
+
+        <activity android:name="com.raohong.WechatRecordVideo.CutSizeActivity" />
+
+        <activity android:name="com.raohong.WechatRecordVideo.CutTimeActivity" />
+
+    </application>
+
+</manifest>
