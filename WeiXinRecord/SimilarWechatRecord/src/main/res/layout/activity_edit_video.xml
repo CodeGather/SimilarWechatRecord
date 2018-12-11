@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#000">
 
-    <com.zhaoshuang.weixinrecorded.MyVideoView
+    <com.raohong.SimilarWechatRecord.MyVideoView
         android:id="@+id/vv_play"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true">
-        <com.zhaoshuang.weixinrecorded.TuyaView
+        <com.raohong.SimilarWechatRecord.TuyaView
             android:id="@+id/tv_video"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
