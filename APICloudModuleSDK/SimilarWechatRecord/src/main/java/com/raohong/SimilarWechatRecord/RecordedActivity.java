@@ -34,7 +34,7 @@ import java.util.List;
  * 仿新版微信录制视频
  * 基于ffmpeg视频编译
  * 使用的是免费第三方VCamera
- * Created by zhaoshuang on 17/2/8.
+ * Created by raohong on 17/2/8.
  */
 public class RecordedActivity extends BaseActivity {
 
@@ -50,7 +50,6 @@ public class RecordedActivity extends BaseActivity {
     private MediaObject mMediaObject;
     private FocusSurfaceView sv_ffmpeg;
     private RecordedButton rb_start;
-    private ImageView record_close;
     private RelativeLayout rl_bottom;
     private RelativeLayout rl_bottom1;
     private RelativeLayout rl_bottom2;
@@ -94,7 +93,6 @@ public class RecordedActivity extends BaseActivity {
 
         sv_ffmpeg = (FocusSurfaceView) findViewById(R.id.sv_ffmpeg);
         rb_start = (RecordedButton) findViewById(R.id.rb_start);
-        record_close = (ImageView) findViewById(R.id.record_close);
         vv_play = (MyVideoView) findViewById(R.id.vv_play);
         iv_finish = (ImageView) findViewById(R.id.iv_finish);
         iv_back = (ImageView) findViewById(R.id.iv_back);
@@ -108,18 +106,12 @@ public class RecordedActivity extends BaseActivity {
         iv_change_camera = (ImageView) findViewById(R.id.iv_change_camera);
         iv_photo = (ImageView) findViewById(R.id.iv_photo);
         rl_top = (RelativeLayout) findViewById(R.id.rl_top);
-
-        /* 监听返回按钮 */
-        record_close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
     }
 
     private void initData() {
+
         sv_ffmpeg.setTouchFocus(mMediaRecorder);
+
         rb_start.setMax(maxDuration);
 
         rb_start.setOnGestureListener(new RecordedButton.OnGestureListener() {
@@ -131,8 +123,10 @@ public class RecordedActivity extends BaseActivity {
                 rb_start.setSplit();
                 myHandler.sendEmptyMessageDelayed(HANDLER_RECORD, 50);
                 cameraTypeList.add(mMediaRecorder.getCameraType());
+
                 /* 返回按钮状态 */
                 rl_bottom1.setVisibility(View.GONE);
+
                 isVideoData = true;
             }
             @Override
