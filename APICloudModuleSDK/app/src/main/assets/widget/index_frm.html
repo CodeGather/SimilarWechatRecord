@@ -22,11 +22,13 @@
 		apiready = function(){
 	    	uzmoduledemo = api.require('moduleDemo');
 	    	scrollPicture = api.require('scrollPicture');
-	    	recordVideo = api.require('similarWechatRecord');
+	    	recordVideo = api.require('moduleRecordVideo');
 	    }
 	    
 		function StartRecordVideo(){
-			var param = {maxTime:15};
+			var param = {
+				maxTime:10
+			};
 	        recordVideo.startRecordVideo(param, function(ret, err){
 	        	alert(JSON.stringify(ret));
 	        });
