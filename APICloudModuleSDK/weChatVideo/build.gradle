@@ -1,0 +1,56 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "25.0.3"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        ndk {
+            //选择要添加的对应CPU类型的so
+            abiFilters 'armeabi', 'armeabi-v7a', 'armeabi-v8a', 'arm64-v8a'
+            //还可以选择'x86', 'x86_64', 'mips', 'mips64'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.android.support:support-v4:26.1.0'
+    testCompile 'junit:junit:4.12'
+    provided files('../app/libs/apiEngine v1.1.0.jar')
+}
+
+
+
+def _BASENAME = "weChatVideo";
+def _DestinationPath = "build"; //生成jar包的位置
+def zipFile = file('build/intermediates/bundles/default/classes.jar'); //待打包文件位置
+
+task deleteBuild(type:Delete){
+    delete _DestinationPath + ".jar"
+}
+
+task makeJar(type:Jar){
+    from zipTree(zipFile)
+    from fileTree(dir:'src/main',includes:['assets/**']) //将assets目录打入jar包
+    baseName = _BASENAME
+    destinationDir = file(_DestinationPath)
+}
+
+makeJar.dependsOn(deleteBuild, build)

@@ -1,0 +1,8 @@
+{
+	"modules":[
+		{
+			"name":"weChatVideo",
+			"class":"com.raohong.weChatVideo.RecordVideoMainActivity"
+		}
+	]
+}

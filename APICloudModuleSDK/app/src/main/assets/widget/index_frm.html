@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>WinA</title>
+    <link rel="stylesheet" type="text/css" href="css/api.css" />
+    <link rel="stylesheet" type="text/css" href="css/box.css" />
+    <script type="text/javascript" src="script/public.js"></script>
+    <style>
+    	p{
+    		color:#999;
+    		padding:5px;
+    	}
+    </style>
+	<script type="text/javascript">
+	    
+		var uzmoduledemo = null;
+		apiready = function(){
+	    	uzmoduledemo = api.require('weChatVideo');
+	    }
+	    
+		function showAlert(){
+			var param = {msg:"Hello APICloud!"};
+	        uzmoduledemo.showAlert(param, function(ret, err){
+	        	alert(JSON.stringify(ret));
+	        });
+		}
+
+		function BMshowAlert(){
+			var param = {msg:"Hello APICloud!"};
+			api.require('ModuleB').showAlert(param);
+		}
+
+		function AMaddView(){
+			var param = {x:20,y:20,w:200,h:200};
+	        api.require('ModuleA').addView(param);
+		}
+		
+		function startActivity(){
+			var param = {appParam:"Hello APICloud!"};
+	        uzmoduledemo.startActivity(param);
+		}
+		
+		function startActivityForResult(){
+			var param = {
+				appParam:"Hello APICloud!",
+				maxTime: 15
+			};
+	        uzmoduledemo.startActivityForResult(param, function(ret, err){
+				document.getElementById("activity_result").innerHTML = JSON.stringify(ret);
+			});
+		}
+
+		function CMstartActivity(){
+			var param = {appParam:"Hello APICloud!"};
+	        api.require('ModuleC').startActivity(param);
+		}
+
+		function CMstartActivityForResult(){
+			var param = {appParam:"Hello APICloud!"};
+			var resultCallback = function(ret, err){
+				document.getElementById("activity_result").innerHTML = JSON.stringify(ret);
+			}
+	        api.require('ModuleC').startActivityForResult(param, resultCallback);
+		}
+		
+		function vibrate(){
+			var mill = document.getElementById("vibrate").value;
+			var param = {milliseconds:mill};
+	        uzmoduledemo.vibrate(param);
+		}
+		
+		function stopVibrate(){
+	        uzmoduledemo.stopVibrate();
+		}
+		
+		function addView(){
+			var param = {x:20,y:20,w:200,h:200};
+	        uzmoduledemo.addView(param);
+		}
+
+		function removeView(){
+
+	        uzmoduledemo.removeView();
+		}
+
+	</script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="main">
+        	<br>
+			<div class='itemtitle'>1、弹出对话框</div>
+				<div class="clickbtn" tapmode="active" onclick="showAlert()" >点击弹出</div>     
+			<div class='itemtitle'>2、启动Activity</div>
+				<div class="clickbtn" tapmode="active" onclick="startActivity()" >startActivity</div>
+				<div class="clickbtn" tapmode="active" onclick="startActivityForResult()" >startActivityForResult</div>
+				<div style="font-size:0.8em;">acticity返回值:</div>
+            	<div id="activity_result" style="width:100%;word-wrap: break-word;word-break: normal;"></div><br><br>
+			<div class='itemtitle'>3、调用设备震动</div>
+				<lable>设置震动时间，单位：毫秒</lable><br>
+				<input type="number" id="vibrate" value="20000" />
+				<div class="clickbtn" tapmode="active" onclick="vibrate()" >开始震动</div>
+				<div class="clickbtn" tapmode="active" onclick="stopVibrate()" >停止震动</div>
+			<div class='itemtitle'>4、自定义UI模块</div>
+				<div class="clickbtn" tapmode="active" onclick="addView()" >添加自定义View到当前Window</div>
+				<div class="clickbtn" tapmode="active" onclick="removeView()" >从当前Window移除自定义View</div>
+			<br>
+		</div>
+	</div>
+</body>
+</html>

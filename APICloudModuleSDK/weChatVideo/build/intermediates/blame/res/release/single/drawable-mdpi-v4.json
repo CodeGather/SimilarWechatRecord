@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "D:\\Android\\apicloud\\APICloudModuleSDK\\weChatVideo\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4\\notification_bg_normal.9.png",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\4069acb2adca9559bcfaf46e62f6dd3f041b289f\\output\\res\\drawable-mdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "D:\\Android\\apicloud\\APICloudModuleSDK\\weChatVideo\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4\\notification_bg_low_normal.9.png",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\4069acb2adca9559bcfaf46e62f6dd3f041b289f\\output\\res\\drawable-mdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "D:\\Android\\apicloud\\APICloudModuleSDK\\weChatVideo\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\4069acb2adca9559bcfaf46e62f6dd3f041b289f\\output\\res\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "D:\\Android\\apicloud\\APICloudModuleSDK\\weChatVideo\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\4069acb2adca9559bcfaf46e62f6dd3f041b289f\\output\\res\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "D:\\Android\\apicloud\\APICloudModuleSDK\\weChatVideo\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\4069acb2adca9559bcfaf46e62f6dd3f041b289f\\output\\res\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png"
+    }
+]

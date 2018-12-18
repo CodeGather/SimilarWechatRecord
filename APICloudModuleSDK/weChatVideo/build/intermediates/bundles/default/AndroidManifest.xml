@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.raohong.sdk.weChatVideo"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="26" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application>
+        <activity android:name="com.raohong.weChatVideo.StartRecordActivity" />
+        <activity android:name="com.raohong.weChatVideo.EditVideoActivity" />
+        <activity android:name="com.raohong.weChatVideo.CutSizeActivity" />
+        <activity android:name="com.raohong.weChatVideo.CutTimeActivity" />
+    </application>
+
+</manifest>
