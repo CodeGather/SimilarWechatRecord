@@ -1,2 +1,0 @@
-# Referenced at E:\work\sean\SimilarWechatRecord\APICloudModuleSDK\app\build\intermediates\merged_manifests\release\AndroidManifest.xml:30
--keep class com.uzmap.pkg.uzapp.UZApplication { <init>(); }
